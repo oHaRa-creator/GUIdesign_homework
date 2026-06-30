@@ -62,7 +62,7 @@ body {
 /* 発信地: 電話番号のすぐ下 */
 .caller-location {
   position: absolute;
-  top: 19.3%;
+  top: 22%;
   left: 50%;
   transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.78);
@@ -104,6 +104,11 @@ body {
   font-size: 5cqw;
   font-weight: 400;
   white-space: nowrap;
+}
+
+/* 上段ラベル（後で通知 / メッセージ）は小さめに */
+.action-row--top .action-label {
+  font-size: 3.6cqw;
 }
 
 /* 上段の白アイコン（後で通知 / メッセージ）: 装飾 */
