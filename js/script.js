@@ -15,8 +15,13 @@ screenIdle.addEventListener("click", () => {
   showScreen(screenCall);
 });
 
-// 赤いボタンをタップ → 通話終了（待機画面へ戻る）
+// 赤いボタンをタップ → ブラウザ（タブ）を閉じる
 hangupBtn.addEventListener("click", (event) => {
   event.stopPropagation();
-  showScreen(screenIdle);
+  // window.close() はスクリプトで開いたウィンドウにしか効かないブラウザが多いため、
+  // 閉じられなかった場合は about:blank に遷移して「閉じた」状態にフォールバック。
+  window.close();
+  window.open("", "_self");
+  window.close();
+  window.location.href = "about:blank";
 });
