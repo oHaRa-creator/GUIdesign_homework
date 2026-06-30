@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>電話してるフリ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="phone">
+    <!-- 画面1: 待機画面（タップで発信） -->
+    <section id="screen-idle" class="screen is-active" aria-label="待機画面"></section>
+
+    <!-- 画面2: 通話中画面 -->
+    <section id="screen-call" class="screen" aria-label="通話中画面">
+      <p class="phone-number">03 629 5591</p>
+      <button class="hangup-btn" type="button" aria-label="通話を終了">
+        <img src="assets/hangup.png" alt="" />
+      </button>
+    </section>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
