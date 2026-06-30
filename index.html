@@ -11,14 +11,66 @@
 </head>
 <body>
   <div class="phone">
-    <!-- 画面1: 待機画面（タップで発信） -->
-    <section id="screen-idle" class="screen is-active" aria-label="待機画面"></section>
+    <!-- 画面1: 待機画面（着信中。応答で通話開始） -->
+    <section id="screen-idle" class="screen is-active" aria-label="待機画面">
+      <p class="phone-number">03 629 5591</p>
+      <p class="caller-location">東京都　新宿区</p>
+
+      <!-- 上段: 後で通知 / メッセージ（装飾） -->
+      <div class="action-row action-row--top">
+        <div class="action">
+          <span class="icon-btn">
+            <svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <!-- ベル（耳） -->
+              <circle cx="6.6" cy="6" r="3.1" />
+              <circle cx="17.4" cy="6" r="3.1" />
+              <!-- 脚 -->
+              <rect x="5.2" y="18.8" width="2.6" height="3.6" rx="1.3" transform="rotate(35 6.5 20.6)" />
+              <rect x="16.2" y="18.8" width="2.6" height="3.6" rx="1.3" transform="rotate(-35 17.5 20.6)" />
+              <!-- 時計本体＋針（くり抜き） -->
+              <path fill-rule="evenodd" d="M12 6.3a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm.95 3.1a.95.95 0 0 0-1.9 0v3.9c0 .26.1.5.28.68l2.5 2.5a.95.95 0 1 0 1.34-1.34l-2.22-2.22V9.4z" />
+            </svg>
+          </span>
+          <span class="action-label">後で通知</span>
+        </div>
+        <div class="action">
+          <span class="icon-btn">
+            <svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4.2C7.1 4.2 3 7.5 3 11.7c0 2.05.98 3.9 2.55 5.22.1.08.14.2.12.33-.16 1.08-.74 2.06-1.27 2.74-.22.28-.02.7.33.66 1.94-.2 3.27-.86 4.04-1.4.16-.11.35-.15.54-.1.85.2 1.74.3 2.65.3 4.9 0 9-3.3 9-7.5S16.9 4.2 12 4.2z" />
+            </svg>
+          </span>
+          <span class="action-label">メッセージ</span>
+        </div>
+      </div>
+
+      <!-- 下段: 拒否 / 応答 -->
+      <div class="action-row action-row--bottom">
+        <div class="action">
+          <button class="circle-btn circle-btn--decline" type="button" aria-label="拒否">
+            <svg class="circle-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z" />
+            </svg>
+          </button>
+          <span class="action-label">拒否</span>
+        </div>
+        <div class="action">
+          <button class="answer-btn circle-btn circle-btn--answer" type="button" aria-label="応答">
+            <svg class="circle-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
+          </button>
+          <span class="action-label">応答</span>
+        </div>
+      </div>
+    </section>
 
     <!-- 画面2: 通話中画面 -->
     <section id="screen-call" class="screen" aria-label="通話中画面">
       <p class="phone-number">03 629 5591</p>
-      <button class="hangup-btn" type="button" aria-label="通話を終了">
-        <img src="assets/hangup.png" alt="" />
+      <button class="hangup-btn circle-btn circle-btn--decline" type="button" aria-label="通話を終了">
+        <svg class="circle-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z" />
+        </svg>
       </button>
     </section>
   </div>

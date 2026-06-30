@@ -29,7 +29,6 @@ body {
   aspect-ratio: 1206 / 2622;
   container-type: inline-size;
   overflow: hidden;
-  cursor: pointer;
   /* 共通グラデーション背景 */
   background: linear-gradient(
     0.41041241962564357deg,
@@ -59,6 +58,102 @@ body {
   }
 }
 
+/* ===== 待機画面（着信中） ===== */
+/* 発信地: 電話番号のすぐ下 */
+.caller-location {
+  position: absolute;
+  top: 19.3%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 6.3cqw;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* アクションを 2×2 で配置 */
+.action-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0 6cqw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-row--top {
+  top: 63.5%;
+}
+
+.action-row--bottom {
+  top: 78%;
+}
+
+.action {
+  width: 32cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.6cqw;
+}
+
+.action-label {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 5cqw;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* 上段の白アイコン（後で通知 / メッセージ）: 装飾 */
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 11cqw;
+  height: 11cqw;
+}
+
+.action-icon {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
+/* 円形ボタン（拒否 / 応答 / 通話終了）— 全画面で共通サイズ */
+.circle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19.57cqw;
+  height: 19.57cqw;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s ease;
+}
+
+.circle-btn:active {
+  transform: scale(0.94);
+}
+
+.circle-btn--decline {
+  background: #f0453c;
+}
+
+.circle-btn--answer {
+  background: #34c759;
+}
+
+.circle-icon {
+  width: 52%;
+  height: 52%;
+  fill: #fff;
+}
+
 /* ===== 通話中画面 ===== */
 /* 電話番号: 上 356/2622 ≈ 13.6%、font-size 140/1206 ≈ 11.6cqw */
 .phone-number {
@@ -74,31 +169,12 @@ body {
   text-align: center;
 }
 
-/* 通話終了ボタン: 上 2028/2622 ≈ 77.34%、サイズ 236/1206 ≈ 19.57cqw、中央 */
+/* 通話終了ボタン: 上 2028/2622 ≈ 77.34%、中央。
+   見た目は待機画面の「拒否」と共通（.circle-btn--decline）。
+   水平中央寄せは margin で行い、:active の scale を共通化する。 */
 .hangup-btn {
   position: absolute;
   top: 77.34%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 19.57cqw;
-  height: 19.57cqw;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.1s ease;
-  /* 書き出し画像の角に残る暗い余白を真円でクリップして消す */
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.hangup-btn:active {
-  transform: translateX(-50%) scale(0.94);
-}
-
-.hangup-btn img {
-  display: block;
-  width: 100%;
-  height: 100%;
+  margin-left: -9.785cqw; /* 19.57cqw の半分 */
 }
