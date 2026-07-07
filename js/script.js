@@ -1,7 +1,9 @@
 // 電話してるフリ: 画面1（待機）⇄ 画面2（通話中）の切り替え
 
+const screenStart = document.getElementById("screen-start");
 const screenIdle = document.getElementById("screen-idle");
 const screenCall = document.getElementById("screen-call");
+const startBtn = document.querySelector(".start-btn");
 const answerBtn = document.querySelector(".answer-btn");
 const declineBtn = document.querySelector(".circle-btn--decline");
 const hangupBtn = document.querySelector(".hangup-btn");
@@ -33,12 +35,23 @@ function playRingtone() {
   });
 }
 
-// 待機画面が開いたら着信音を再生
-playRingtone();
+// 携帯バイブレーション（対応端末のみ。PC等では無視される）
+function vibratePhone() {
+  if (navigator.vibrate) {
+    // 着信のように断続的に振動させる
+    navigator.vibrate([600, 300, 600, 300, 600]);
+  }
+}
 
 function showScreen(target) {
-  for (const screen of [screenIdle, screenCall]) {
+  for (const screen of [screenStart, screenIdle, screenCall]) {
     screen.classList.toggle("is-active", screen === target);
+  }
+
+  // 待機（着信）画面が開いたら、バイブレーションとともに着信音を再生
+  if (target === screenIdle) {
+    vibratePhone();
+    playRingtone();
   }
 
   // 通話画面が開いたら、携帯バイブレーションを止めて BGM に切り替える
@@ -60,6 +73,11 @@ function endCall() {
   window.close();
   window.location.href = "about:blank";
 }
+
+// 開始する → 携帯バイブレーションとともに待機（着信）画面へ
+startBtn.addEventListener("click", () => {
+  showScreen(screenIdle);
+});
 
 // 応答 → 通話中画面へ切り替え、音声を再生
 answerBtn.addEventListener("click", () => {

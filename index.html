@@ -11,8 +11,15 @@
 </head>
 <body>
   <div class="phone">
+    <!-- 画面0: 開始画面 -->
+    <section id="screen-start" class="screen is-active" aria-label="開始画面">
+      <p class="phone-number">電話してるフリ</p>
+      <p class="caller-location">webサイト</p>
+      <button class="start-btn" type="button">開始する</button>
+    </section>
+
     <!-- 画面1: 待機画面（着信中。応答で通話開始） -->
-    <section id="screen-idle" class="screen is-active" aria-label="待機画面">
+    <section id="screen-idle" class="screen" aria-label="待機画面">
       <p class="phone-number">03 629 5591</p>
       <p class="caller-location">東京都　新宿区</p>
 

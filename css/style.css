@@ -58,6 +58,33 @@ body {
   }
 }
 
+/* ===== 開始画面（通話画面と同じレイアウト） ===== */
+/* 「開始する」ボタン: 通話終了ボタンと同じ位置（上 77.34%・中央）に配置。
+   色・形（緑のピル型）はそのまま。 */
+.start-btn {
+  position: absolute;
+  top: 77.34%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3.4cqw 10cqw;
+  border: none;
+  border-radius: 999px;
+  background: #34c759;
+  color: #fff;
+  font-family: inherit;
+  font-size: 6cqw;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s ease;
+}
+
+.start-btn:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
 /* ===== 待機画面（着信中） ===== */
 /* 発信地: 電話番号のすぐ下 */
 .caller-location {
