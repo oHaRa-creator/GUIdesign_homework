@@ -109,8 +109,8 @@ body {
 }
 
 .status-nav {
-  width: 3.8cqw;
-  height: 3.8cqw;
+  width: 4.9cqw;
+  height: 4.9cqw;
   fill: #fff;
 }
 
@@ -125,15 +125,15 @@ body {
 }
 
 .status-signal {
-  height: 3.4cqw;
+  height: 3.9cqw;
 }
 
 .status-wifi {
-  height: 4cqw;
+  height: 4.5cqw;
 }
 
 .status-battery {
-  height: 3.4cqw;
+  height: 3.9cqw;
 }
 
 /* ===== 待機画面（着信中） ===== */
