@@ -6,7 +6,7 @@
   <title>電話してるフリ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -20,6 +20,34 @@
 
     <!-- 画面1: 待機画面（着信中。応答で通話開始） -->
     <section id="screen-idle" class="screen" aria-label="待機画面">
+      <!-- iPhone風ステータスバー -->
+      <div class="status-bar" aria-hidden="true">
+        <div class="status-time">
+          <span>18:28</span>
+          <svg class="status-nav" viewBox="0 0 24 24">
+            <path d="M20.7 3.3 3.9 10.1c-.7.3-.6 1.3.1 1.4l6.8 1.6 1.6 6.8c.2.7 1.1.8 1.4.1z" />
+          </svg>
+        </div>
+        <div class="status-icons">
+          <svg class="status-signal" viewBox="0 0 20 14">
+            <rect x="0" y="9" width="3.4" height="5" rx="1" />
+            <rect x="5.5" y="6.3" width="3.4" height="7.7" rx="1" />
+            <rect x="11" y="3.4" width="3.4" height="10.6" rx="1" />
+            <rect x="16.6" y="0" width="3.4" height="14" rx="1" />
+          </svg>
+          <svg class="status-wifi" viewBox="0 0 18 14">
+            <path d="M9 1.9C5.9 1.9 3.1 3.1 1 5.2l1.6 1.6C4.3 5.1 6.5 4.2 9 4.2s4.7.9 6.4 2.6L17 5.2C14.9 3.1 12.1 1.9 9 1.9z" />
+            <path d="M9 6.1c-1.6 0-3.1.6-4.2 1.7l1.6 1.6C7.1 8.7 8 8.3 9 8.3s1.9.4 2.6 1.1l1.6-1.6C12.1 6.7 10.6 6.1 9 6.1z" />
+            <circle cx="9" cy="11.9" r="1.7" />
+          </svg>
+          <svg class="status-battery" viewBox="0 0 30 14">
+            <rect x="0.5" y="0.5" width="24" height="13" rx="3.6" fill="none" stroke="#fff" stroke-opacity="0.4" />
+            <rect x="2" y="2" width="19" height="10" rx="2.2" />
+            <path d="M26 4.6v4.8c1-.35 1.7-1.25 1.7-2.4S27 4.95 26 4.6z" fill-opacity="0.6" />
+          </svg>
+        </div>
+      </div>
+
       <p class="phone-number">03 629 5591</p>
       <p class="caller-location">東京都　新宿区</p>
 
@@ -73,6 +101,34 @@
 
     <!-- 画面2: 通話中画面 -->
     <section id="screen-call" class="screen" aria-label="通話中画面">
+      <!-- iPhone風ステータスバー -->
+      <div class="status-bar" aria-hidden="true">
+        <div class="status-time">
+          <span>18:28</span>
+          <svg class="status-nav" viewBox="0 0 24 24">
+            <path d="M20.7 3.3 3.9 10.1c-.7.3-.6 1.3.1 1.4l6.8 1.6 1.6 6.8c.2.7 1.1.8 1.4.1z" />
+          </svg>
+        </div>
+        <div class="status-icons">
+          <svg class="status-signal" viewBox="0 0 20 14">
+            <rect x="0" y="9" width="3.4" height="5" rx="1" />
+            <rect x="5.5" y="6.3" width="3.4" height="7.7" rx="1" />
+            <rect x="11" y="3.4" width="3.4" height="10.6" rx="1" />
+            <rect x="16.6" y="0" width="3.4" height="14" rx="1" />
+          </svg>
+          <svg class="status-wifi" viewBox="0 0 18 14">
+            <path d="M9 1.9C5.9 1.9 3.1 3.1 1 5.2l1.6 1.6C4.3 5.1 6.5 4.2 9 4.2s4.7.9 6.4 2.6L17 5.2C14.9 3.1 12.1 1.9 9 1.9z" />
+            <path d="M9 6.1c-1.6 0-3.1.6-4.2 1.7l1.6 1.6C7.1 8.7 8 8.3 9 8.3s1.9.4 2.6 1.1l1.6-1.6C12.1 6.7 10.6 6.1 9 6.1z" />
+            <circle cx="9" cy="11.9" r="1.7" />
+          </svg>
+          <svg class="status-battery" viewBox="0 0 30 14">
+            <rect x="0.5" y="0.5" width="24" height="13" rx="3.6" fill="none" stroke="#fff" stroke-opacity="0.4" />
+            <rect x="2" y="2" width="19" height="10" rx="2.2" />
+            <path d="M26 4.6v4.8c1-.35 1.7-1.25 1.7-2.4S27 4.95 26 4.6z" fill-opacity="0.6" />
+          </svg>
+        </div>
+      </div>
+
       <p class="phone-number">03 629 5591</p>
       <p class="caller-location">東京都　新宿区</p>
       <button class="hangup-btn circle-btn circle-btn--decline" type="button" aria-label="通話を終了">

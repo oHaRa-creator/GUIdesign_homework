@@ -85,6 +85,57 @@ body {
   transform: translateX(-50%) scale(0.95);
 }
 
+/* ===== iPhone風ステータスバー（待機画面・通話画面 共通） ===== */
+.status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 9cqw;
+  padding: 2.4cqw 7cqw 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.status-time {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+  font-size: 5cqw;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.status-nav {
+  width: 3.8cqw;
+  height: 3.8cqw;
+  fill: #fff;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 2cqw;
+}
+
+.status-icons svg {
+  fill: #fff;
+}
+
+.status-signal {
+  height: 3.4cqw;
+}
+
+.status-wifi {
+  height: 4cqw;
+}
+
+.status-battery {
+  height: 3.4cqw;
+}
+
 /* ===== 待機画面（着信中） ===== */
 /* 発信地: 電話番号のすぐ下 */
 .caller-location {
