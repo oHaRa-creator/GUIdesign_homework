@@ -6,17 +6,48 @@ const answerBtn = document.querySelector(".answer-btn");
 const declineBtn = document.querySelector(".circle-btn--decline");
 const hangupBtn = document.querySelector(".hangup-btn");
 
-// 応答時に再生する音声（assets/voice.mp3 を各自で配置）
-const voice = new Audio("assets/voice.mp3");
+// 通話画面で流すBGM（bgm.mp3 を各自で配置）
+const bgm = new Audio("bgm.mp3");
 
-function stopVoice() {
-  voice.pause();
-  voice.currentTime = 0;
+// 待機（着信）画面で流す着信音（携帯バイブレーション.mp3 を各自で配置）
+const ringtone = new Audio("携帯バイブレーション.mp3");
+ringtone.loop = true;
+
+function stopBgm() {
+  bgm.pause();
+  bgm.currentTime = 0;
 }
+
+function stopRingtone() {
+  ringtone.pause();
+  ringtone.currentTime = 0;
+}
+
+// 着信音を再生。自動再生がブロックされた場合は、最初の操作で鳴らす。
+function playRingtone() {
+  ringtone.play().catch(() => {
+    const resume = () => {
+      ringtone.play().catch(() => {});
+    };
+    window.addEventListener("pointerdown", resume, { once: true });
+  });
+}
+
+// 待機画面が開いたら着信音を再生
+playRingtone();
 
 function showScreen(target) {
   for (const screen of [screenIdle, screenCall]) {
     screen.classList.toggle("is-active", screen === target);
+  }
+
+  // 通話画面が開いたら、携帯バイブレーションを止めて BGM に切り替える
+  if (target === screenCall) {
+    stopRingtone();
+    bgm.currentTime = 0;
+    bgm.play().catch(() => {
+      // 再生できなかった場合（ファイル未配置など）は無視
+    });
   }
 }
 
@@ -33,21 +64,19 @@ function endCall() {
 // 応答 → 通話中画面へ切り替え、音声を再生
 answerBtn.addEventListener("click", () => {
   showScreen(screenCall);
-  voice.currentTime = 0;
-  voice.play().catch(() => {
-    // 再生できなかった場合（ファイル未配置など）は無視
-  });
 });
 
 // 拒否 → 着信を切る（タブを閉じる）
 declineBtn.addEventListener("click", () => {
-  stopVoice();
+  stopRingtone();
+  stopBgm();
   endCall();
 });
 
 // 通話終了ボタン → タブを閉じる
 hangupBtn.addEventListener("click", (event) => {
   event.stopPropagation();
-  stopVoice();
+  stopRingtone();
+  stopBgm();
   endCall();
 });
