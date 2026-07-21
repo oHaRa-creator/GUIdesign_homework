@@ -8,12 +8,17 @@ const answerBtn = document.querySelector(".answer-btn");
 const declineBtn = document.querySelector(".circle-btn--decline");
 const hangupBtn = document.querySelector(".hangup-btn");
 
-// 通話画面で流すBGM（bgm.mp3 を各自で配置）
-const bgm = new Audio("bgm.mp3");
+// 通話画面で流すBGM（通話音声.mp3 を各自で配置）
+const bgm = new Audio("通話音声.mp3");
 
 // 待機（着信）画面で流す着信音（携帯バイブレーション.mp3 を各自で配置）
 const ringtone = new Audio("携帯バイブレーション.mp3");
 ringtone.loop = true;
+
+bgm.addEventListener("ended", () => {
+  stopBgm();
+  endCall();
+});
 
 function stopBgm() {
   bgm.pause();
